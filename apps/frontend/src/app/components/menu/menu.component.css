@@ -1,0 +1,21 @@
+section.menu {
+    height: 100vh;
+    border-right: 1px solid gray;
+}
+
+section.menu a {
+    text-decoration: none;
+}
+section.menu a:visited {
+    color: unset
+}
+
+section.menu ul {
+    margin: 0;
+    padding: 1em 0 0;
+}
+section.menu li {
+    list-style-type: none;
+    padding: .5em .4em;
+    cursor: pointer;
+}

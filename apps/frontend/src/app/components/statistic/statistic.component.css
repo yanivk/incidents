@@ -1,0 +1,16 @@
+section.wrapper-stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin: 1em;
+}
+
+section.wrapper-stat .number {
+    font-weight: bold;
+    font-size: 2em;
+}

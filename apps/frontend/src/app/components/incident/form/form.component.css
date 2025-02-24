@@ -1,0 +1,15 @@
+form.wrapper-form {
+    display: flex;
+    flex-direction: column;
+}
+
+form button {
+    background: #B4E082;
+    border: none;
+    border-radius: 8px;
+    padding: .5em;
+    cursor: pointer;
+}
+form button:hover {
+    background: #c6f18f;
+}

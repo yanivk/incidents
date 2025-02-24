@@ -1,0 +1,24 @@
+@if (id) {
+  <p>Update {{ id }}</p>
+} @else {
+  <p>Creation</p>
+}
+<form
+    class="wrapper-form"
+    [formGroup]="incidentForm"
+    (ngSubmit)="handleSubmit()"
+>
+  <label for="">Title</label>
+  <input type="text" formControlName="title" />
+  <label for="">Description</label>
+  <input type="text" formControlName="description" />
+  <label for="">Requester Details</label>
+  <input type="text" formControlName="requesterDetails" />
+  <label for="">Status</label>
+  <select name="status" >
+    <option value="dog">Open</option>
+    <option value="cat">Waiting</option>
+    <option value="cat">Closed</option>
+  </select>
+  <button type="submit">Submit</button>
+</form>

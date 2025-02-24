@@ -1,0 +1,18 @@
+section.wrapper-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+button.add-incident {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    border-radius: 50%;
+    border: none;
+    background: #456A94;
+    color: #FFFFFF;
+    font-size: 2.5em;
+    cursor: pointer;
+}
