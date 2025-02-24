@@ -1,0 +1,22 @@
+{
+  "ts-node": {
+    "esm": true,
+  },
+  "compilerOptions": {
+    // other compiler options...
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule":true,
+    "noImplicitAny": true,
+    "outDir": "dist",
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "lib": ["ESNext"],
+    "target": "es2017",
+    "module": "CommonJS"
+  },
+  "include": ["./**/*.ts"],
+}

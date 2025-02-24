@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/bin/www.ts",
+  "scripts": {
+    "start": "node dist/src/bin/www.js",
+    "build": "tsc --build",
+    "dev": "concurrently -k -n \"Typescript,Node\" -p \"[{name}]\" -c \"blue,green\" \"tsc --watch\" \"nodemon dist/src/bin/www.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.2",
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.2"
+  }
+}

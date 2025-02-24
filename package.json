@@ -1,0 +1,8 @@
+{
+  "name": "tower-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "all:dev": "pnpm -r --parallel run dev"
+  }
+}
