@@ -12,7 +12,9 @@ On a root of project launch
 ```bash
 pnpm install
 ```
-
+```bash
+pnpm -r build
+```
 ## Development server
 On a root of project launch
 ```bash
