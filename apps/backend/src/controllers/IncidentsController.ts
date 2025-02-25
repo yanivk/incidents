@@ -31,6 +31,11 @@ export async function createIncident(req: Request, res: Response) {
   if (!isKeyValid(data, "description") || !isKeyValid(data, "requesterDetails") || !isKeyValid(data, "status") || !isKeyValid(data, "title")) {
     return res.status(400).send("One or more parameters is missing");
   }
+  data.status = data.status.toLowerCase();
+  if (data.status !== "opened" && data.status !== "closed") {
+    return res.status(400).send("An error occurred with a status, you need select just opened or closed");
+  }
+
   let incident: Incidents;
   incident = {...data}
   const dbSave = await IncidentsRepository.save(incident);
@@ -45,6 +50,10 @@ export async function updateIncident(req: Request, res: Response) {
   }
   if (!isKeyValid(data, "description") && !isKeyValid(data, "requesterDetails") && !isKeyValid(data, "status")) {
     return res.status(400).send("One or more parameters is missing");
+  }
+  data.status = data.status.toLowerCase();
+  if (data.status !== "opened" && data.status !== "closed") {
+    return res.status(400).send("An error occurred with a status, you need select just opened or closed");
   }
   await IncidentsRepository.update({ id: parseInt(req.params.id) }, {...data});
 
