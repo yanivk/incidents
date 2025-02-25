@@ -14,6 +14,9 @@ export async function incidentsOfDay(req: Request, res: Response){
     where: {
       createdAt: Between(getStartCurrentDay(), getEndCurrentDay()),
       deleted: false
+    },
+    order: {
+      updatedAt: "DESC"
     }
   })
   return res.status(200).json({
@@ -35,7 +38,7 @@ export async function totalOpenIncidents(req: Request, res: Response){
 export async function recentlyClosedIncidents(req: Request, res: Response){
   const closedIncidents = await IncidentsRepository.count({
     where: {
-      createdAt: Between(getPassedDate(), getEndCurrentDay()),
+      updatedAt: Between(getPassedDate(), getEndCurrentDay()),
       status: "closed",
       deleted: false
     }

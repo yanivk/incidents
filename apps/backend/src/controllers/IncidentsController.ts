@@ -19,7 +19,7 @@ export async function showAllIncidents(req: Request, res: Response) {
       deleted: false
     },
     order: {
-      createdAt: "DESC"
+      updatedAt: "DESC"
     }
   });
 
