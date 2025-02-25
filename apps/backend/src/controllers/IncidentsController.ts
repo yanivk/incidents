@@ -3,8 +3,25 @@ import IncidentsRepository from "../repository/incidents/IncidentsRepository";
 import {Incidents} from "../entity/incidents";
 import {isKeyValid} from "../utils/Helpers";
 
+export async function showOneIncident(req: Request, res: Response) {
+  const incident = await IncidentsRepository.findOne({
+    where: {
+      id: +req.params.id,
+      deleted: false
+    }
+  });
+
+  return res.status(200).send(incident);
+}
 export async function showAllIncidents(req: Request, res: Response) {
-  const incidents = await IncidentsRepository.find({});
+  const incidents = await IncidentsRepository.find({
+    where: {
+      deleted: false
+    },
+    order: {
+      createdAt: "DESC"
+    }
+  });
 
   return res.status(200).send(incidents);
 }
@@ -31,11 +48,11 @@ export async function updateIncident(req: Request, res: Response) {
   }
   await IncidentsRepository.update({ id: parseInt(req.params.id) }, {...data});
 
-  return res.status(200).send(`The incident has been updated successfully.`);
+  return res.status(200).send({message: `The incident has been updated successfully.`});
 }
 
 export async function softDeleteIncident(req: Request, res: Response) {
   await IncidentsRepository.update({ id: parseInt(req.params.id) }, {deleted: true});
 
-  return res.status(200).send(`The incident ${req.params.id} was deleted.`);
+  return res.status(200).send({message: `The incident ${req.params.id} was deleted.`});
 }

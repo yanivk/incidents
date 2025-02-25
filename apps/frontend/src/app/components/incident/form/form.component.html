@@ -8,17 +8,16 @@
     [formGroup]="incidentForm"
     (ngSubmit)="handleSubmit()"
 >
-  <label for="">Title</label>
+  <label>Title</label>
   <input type="text" formControlName="title" />
-  <label for="">Description</label>
+  <label>Description</label>
   <input type="text" formControlName="description" />
-  <label for="">Requester Details</label>
+  <label>Requester Details</label>
   <input type="text" formControlName="requesterDetails" />
-  <label for="">Status</label>
-  <select name="status" >
-    <option value="dog">Open</option>
-    <option value="cat">Waiting</option>
-    <option value="cat">Closed</option>
+  <label>Status</label>
+  <select name="status" formControlName="status">
+    <option value="opened">Open</option>
+    <option value="closed">Closed</option>
   </select>
   <button type="submit">Submit</button>
 </form>

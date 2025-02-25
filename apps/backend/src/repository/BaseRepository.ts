@@ -60,4 +60,8 @@ export class BaseRepository<T> {
     return this.model.find(options);
   }
 
+
+  count(options: FindManyOptions<T>): Promise<number> {
+    return this.model.count(options);
+  }
 }

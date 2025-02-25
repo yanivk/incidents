@@ -1,0 +1,22 @@
+.incident-header span{
+    font-weight: bold;
+}
+
+ul.wrapper-list-incidents li {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 15px 0;
+}
+
+.status-incident {
+    border-radius: 8px;
+    width: 100px;
+    text-align: center;
+}
+.opened-incident {
+    background: #B4E082;
+}
+.closed-incident {
+    background: #F96E46;
+}

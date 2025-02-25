@@ -1,16 +1,44 @@
 import {Request, Response} from "express";
+import IncidentsRepository from "../repository/incidents/IncidentsRepository";
+import {Between} from "typeorm";
+import {getEndCurrentDay, getPassedDate, getStartCurrentDay} from "../utils/Helpers";
 
 export async function incidentsOfDay(req: Request, res: Response){
-
-  return res.status(200).send()
+  const countIncidents = await IncidentsRepository.count({
+    where: {
+      createdAt: Between(getStartCurrentDay(), getEndCurrentDay()),
+      deleted: false
+    }
+  })
+  const listIncidents = await IncidentsRepository.find({
+    where: {
+      createdAt: Between(getStartCurrentDay(), getEndCurrentDay()),
+      deleted: false
+    }
+  })
+  return res.status(200).json({
+    incidents: listIncidents,
+    count: countIncidents,
+  })
 }
 
 export async function totalOpenIncidents(req: Request, res: Response){
-
-  return res.status(200).send()
+  const countOpened = await IncidentsRepository.count({
+    where: {
+      status: "opened",
+      deleted: false
+    }
+  })
+  return res.status(200).json(countOpened)
 }
 
 export async function recentlyClosedIncidents(req: Request, res: Response){
-
-  return res.status(200).send()
+  const closedIncidents = await IncidentsRepository.count({
+    where: {
+      createdAt: Between(getPassedDate(), getEndCurrentDay()),
+      status: "closed",
+      deleted: false
+    }
+  })
+  return res.status(200).json(closedIncidents)
 }

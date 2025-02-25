@@ -1,12 +1,13 @@
 <h1>All incidents</h1>
 <section class="wrapper-cards">
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
-  <app-card />
+  @for (incident of listIncidents; track incident.id) {
+    <app-card
+      [id]="incident.id"
+      [title]="incident.title"
+      [description]="incident.description"
+      [status]="incident.status"
+      [requesterDetails]="incident.requesterDetails"
+    />
+  }
 </section>
 <button class="add-incident" (click)="btnClick();">+</button>

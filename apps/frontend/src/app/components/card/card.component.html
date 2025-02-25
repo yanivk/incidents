@@ -1,19 +1,21 @@
 <div class="wrapper-card">
   <div class="header">
-    <span>title</span>
-    <span>id</span>
+    <span>{{ title() }}</span>
+    <span>{{ id() }}</span>
   </div>
   <div class="body">
-    <p>Lorem ipssum Lorem ipssum Lorem ipssum Lorem ipssum Lorem ipssum Lorem ipssum
-      Lorem ipssum Lorem ipssum Lorem ipssum Lorem ipssum Lorem ipssum Lorem ipssum
-      Lorem ipssum Lorem ipssum Lorem ipssum Lorem ipssum Lorem ipssum Lorem ipssum
-      Lorem ipssum Lorem ipssum Lorem ipssum Lorem ipssum Lorem ipssum Lorem ipssum </p>
+    <p>{{description()}}</p>
   </div>
   <div class="footer">
-    <p>Requester</p>
+    <p>{{ requesterDetails() }}</p>
+    @if (status() === "opened") {
+      <span class="status green"></span>
+    } @else {
+      <span class="status red"></span>
+    }
   </div>
   <div class="actions">
-    <a routerLink="/incidents/incident/1">
+    <a routerLink="/incidents/incident/{{id()}}">
       Update
     </a>
   </div>

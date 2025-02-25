@@ -1,7 +1,7 @@
 import express from 'express';
 import {
     createIncident,
-    showAllIncidents,
+    showAllIncidents, showOneIncident,
     softDeleteIncident,
     updateIncident
 } from "../controllers/IncidentsController";
@@ -10,6 +10,10 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     await showAllIncidents(req, res);
+});
+
+router.get('/:id', async (req, res) => {
+    await showOneIncident(req, res);
 });
 
 router.post('/', async (req, res) => {

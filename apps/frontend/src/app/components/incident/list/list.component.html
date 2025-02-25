@@ -1,0 +1,23 @@
+<h1>Recetly opened</h1>
+<ul class="wrapper-list-incidents">
+  <li class="incident incident-header">
+    <span>id</span>
+    <span>Title</span>
+    <span>Description</span>
+    <span>Requester details</span>
+    <span>Status</span>
+  </li>
+@for (incident of incidents(); track incident.id) {
+  <li class="incident">
+    <span>{{ incident.id }}</span>
+    <span>{{ incident.title }}</span>
+    <span>{{ incident.description }}</span>
+    <span>{{ incident.requesterDetails }}</span>
+    @if (incident.status === "opened") {
+      <span class="status-incident opened-incident">{{ incident.status }}</span>
+    } @else {
+      <span class="status-incident closed-incident">{{ incident.status }}</span>
+    }
+  </li>
+}
+</ul>
